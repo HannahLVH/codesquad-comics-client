@@ -6,6 +6,7 @@ import Admin from "./components/admin";
 import Create from "./components/create";
 import Home from "./components/home";
 import Login from "./components/login";
+import Signup from  "./components/signup";
 import Update from "./components/update";
 import Footer from "../src/shared/footer";
 
@@ -24,7 +25,7 @@ useEffect (() => {
       <Create/>
       <Home/>
       <Login user={user} setUser={setUser}/>
-      {/* <Signup /> */}
+      <Signup />
       <Update/>
       <Footer/>
     </div>
