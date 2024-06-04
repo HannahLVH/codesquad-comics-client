@@ -1,3 +1,5 @@
+import React, {useState, useEffect} from "react";
+
 import Header from "../src/shared/header";
 import About from "./components/about";
 import Admin from "./components/admin";
@@ -8,14 +10,21 @@ import Update from "./components/update";
 import Footer from "../src/shared/footer";
 
 function App() {
+const [user, setUser] = useState({})
+
+useEffect (() => {
+  localStorage.getItem("user")
+}, [user])
+
   return (
     <div className="App">
-      <Header/>
+      <Header user={user} setUser={setUser}/>
       <About/>
       <Admin/>
       <Create/>
       <Home/>
-      <Login/>
+      <Login user={user} setUser={setUser}/>
+      {/* <Signup /> */}
       <Update/>
       <Footer/>
     </div>

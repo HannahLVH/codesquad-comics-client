@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import booksData from "../data/books";
 
 const Home = () => {
-    const imagePath = "./images/" 
+    const imagePath = "./images/";
+    const [books, setBooks] = useState([]);
+
+    useEffect (() => {
+        setBooks(booksData);
+    }, [])
+    
     return (
       <div>
         <div Name="content-section">
@@ -24,8 +30,8 @@ const Home = () => {
                     </span>
                     <br/>
                     <div className="comic-collection-layout comic-link-styling">
-                        {booksData.map((book) => 
-                            <div className="comic-thumbnail">
+                        {books.map((book) => 
+                            <div className="comic-thumbnail" key={book.id}>
                                 <a href="#"><img src={`${imagePath}${book.image}`} alt={`Front cover of comic book ${book.title}`} style={{width: "200px"}}/></a>
                                 <div className="comic-thumbnail-text">
                                     <span>{book.title}</span><br/>by {book.author}<br/>{book.rating}<br/><a href="#">Details</a>
