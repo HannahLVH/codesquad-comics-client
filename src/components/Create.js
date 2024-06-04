@@ -46,7 +46,7 @@ const Create = () => {
                             </div>
                             <div>
                                 <label htmlFor="publisher">Publisher:</label>
-                                <select name="publisher" id="publisher" defaultValue={"select"}                           onChange={handleFormSubmit} 
+                                <select name="publisher" id="publisher" defaultValue={"select"}                     onChange={handleFormSubmit} 
                                 required>
                                     <option value="select" disabled>Select</option>
                                     <option value="boom-box">BOOM! Box</option>

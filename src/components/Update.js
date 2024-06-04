@@ -1,6 +1,33 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+
+import booksData from "../data/books"
 
 const Update = () => {
+    const _id = "66b62a49-a8de-4914-ab3f-49fe0554c08a";
+    const [book, setBook] = useState({
+        title: "",
+        author: "",
+        publisher:"",
+        genre: "",
+        pages: "",
+        rating: "",
+        synopsis: ""
+    });
+
+    useEffect(() => {
+        const findBook = booksData.find((book) => book._id === _id)
+        // localStorage.setItem("findBook", JSON.stringify(findBook));
+        setBook(findBook);
+    }, [_id])
+
+    const handleUpdateSubmit = (e) => {
+        const {name, value} = e.target;
+        setBook((prevBook) => ({...prevBook, [name]: value}))
+        console.log("Method running successfully");
+    }
+
+    console.log(book)
+
     return (
     <div>
         <div className="content-section">
@@ -12,20 +39,29 @@ const Update = () => {
                     </header>
                 </span>
                 <div className="form-container">
-                    <form action="#">
+                    <form action="#" onSubmit={handleUpdateSubmit}>
                         <div className="form-fields">
                             <div className="label-input">
-                                <label for="title">Title:</label>
-                                <input type="title" name="title" id="title" value="title value stored in the database" />
+                                <label htmlFor="title">Title:</label>
+                                <input type="text" name="title" id="title" 
+                                // value="title value stored in the database"
+                                value={book.title}
+                                onChange={handleUpdateSubmit} required />
                             </div>
                             <div>
-                                <label for="author">Author:</label>
-                                <input type="author" name="author" id="author" value="author value stored in the database" />
+                                <label htmlFor="author">Author:</label>
+                                <input type="text" name="author" id="author" 
+                                //value="author value stored in the database"
+                                value={book.author}
+                                onChange={handleUpdateSubmit} />
                             </div>
                             <div>
-                                <label for="publisher-select">Publisher:</label>
-                                <select name="publisher-select" id="publisher-select">
-                                    <option value="publisher-value" selected>publisher value stored in the database</option>
+                                <label htmlFor="publisher">Publisher:</label>
+                                <select name="publisher" id="publisher"
+                                value={book.publisher}
+                                onChange={handleUpdateSubmit}
+                            >
+                                    <option value="publisherValue" >publisher value stored in the database</option>
                                     <option value="boom-box">BOOM! Box</option>
                                     <option value="dc-comics">DC Comics</option>
                                     <option value="harry-n-abrams">Harry N. Abrams</option>
@@ -38,20 +74,28 @@ const Update = () => {
                                 </select>
                             </div>
                             <div>
-                                <label for="genre">Genre:</label>
-                                <input type="genre" name="genre" id="genre" value="genre data stored in the database" />
+                                <label htmlFor="genre">Genre:</label>
+                                <input type="text" name="genre" id="genre" 
+                                //value="genre data stored in the database" 
+                                value={book.genre}
+                                onChange={handleUpdateSubmit}/>
                             </div>
                             <div>
-                                <label for="number-pages">Number of pages:</label>
-                                <input type="number-pages" name="number-pages" id="number-pages" value="255" />
+                                <label htmlFor="pages">Number of pages:</label>
+                                <input type="number" name="pages" id="pages" 
+                                value={book.pages}
+                                onChange={handleUpdateSubmit} />
                             </div>
                             <div>
-                                <label for="rating">Rating:</label>
-                                <input type="rating" name="rating" id="rating" value="5"/>
+                                <label htmlFor="rating">Rating:</label>
+                                <input type="number" name="rating" id="rating" value={book.rating}
+                                onChange={handleUpdateSubmit}/>
                             </div>
                             <div>
                                 <label className="synopsis-label">Synopsis:</label>
-                                <textarea className="synopsis-textarea" id="synopsis" name="synopsis">synopsis value stored in the database</textarea>
+                                <textarea className="synopsis-textarea" id="synopsis" name="synopsis"
+                                value={book.synopsis}
+                                onChange={handleUpdateSubmit}></textarea>
                             </div>
                             <br/>
                             <div className="submit-button">
