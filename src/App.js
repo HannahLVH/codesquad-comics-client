@@ -25,7 +25,7 @@ useEffect (() => {
       <Create/>
       <Home/>
       <Login user={user} setUser={setUser}/>
-      <Signup />
+      <Signup user={user} setUser={setUser}/>
       <Update/>
       <Footer/>
     </div>
