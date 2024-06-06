@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Signup = () => {
+const Signup = ({user}) => {
     const [signUp, setSignUp] = useState({
         firstName: "",
         lastName: "",
@@ -12,9 +12,14 @@ const Signup = () => {
         const {name, value} = e.target;
         setSignUp((prevSetSignUp) => ({...prevSetSignUp, [name]: value}))
         console.log("Method running successfully")
+        console.log(signUp)
     }
 
-    console.log(signUp)
+    const handleSignedUp = (e) => {
+        console.log(`Thank you for signing up, ${user.firstName}!`)
+    }
+
+
 
     return (
     <div>
@@ -57,7 +62,7 @@ const Signup = () => {
                                 </div>
                                 <div className="submit-button">
                                     <br/>
-                                    <button className="submit-button yellow-button">Submit</button>
+                                    <button className="submit-button yellow-button" onClick={handleSignedUp}>Submit</button>
                                 </div>
                             </div>
                         </form>

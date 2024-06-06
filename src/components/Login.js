@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({user}) => {
     const [login, setLogin] = useState({
         username: "",
         password: "",
@@ -8,11 +8,16 @@ const Login = () => {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const {name, value} = e.target;
-        setLogin((prevSetLogin) => ({...prevSetLogin, [name]: value}))
-        console.log("Method running successfully")
+        setLogin((prevSetLogin) => ({...prevSetLogin, [name]: value}));
+        console.log("Method running successfully");
+        console.log(login)
     }
 
-    console.log(login)
+
+    const handleLoggedIn = (e) => {
+        console.log(`Welcome back, ${user.firstName}!`)
+    }
+
 
     return (
     <div>
@@ -25,8 +30,8 @@ const Login = () => {
                         <form action="#" onSubmit={handleLoginSubmit}>
                             <div className="form-fields">
                                 <div>
-                                    <label for="username">Email Address: </label>
-                                    <input type="text" name="username" id="username" placeholder="Email"
+                                    <label for="username">Username: </label>
+                                    <input type="text" name="username" id="username" placeholder="Username"
                                     value={login.username}
                                     onChange={handleLoginSubmit}
                                     required/>
@@ -40,7 +45,7 @@ const Login = () => {
                                 </div>
                                 <div className="submit-button">
                                     <br/>
-                                    <button className="submit-button yellow-button">Submit</button>
+                                    <button className="submit-button yellow-button" onClick={handleLoggedIn}>Submit</button>
                                 </div>
                             </div>
                         </form>
