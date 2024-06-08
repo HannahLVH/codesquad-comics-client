@@ -5,7 +5,7 @@ const Home = () => {
     const imagePath = "./images/" 
     return (
       <div>
-        <div Name="content-section">
+        <div className="content-section">
             <br/>
             <div className="text-container-1">
                 <span className="content-header">

@@ -1,11 +1,11 @@
-import Header from "../src/shared/header";
-import About from "./components/about";
-import Admin from "./components/admin";
+import Header from "../src/shared/Header";
+import About from "./components/About";
+import Admin from "./components/Admin";
 import Create from "./components/create";
-import Home from "./components/home";
-import Login from "./components/login";
-import Update from "./components/update";
-import Footer from "../src/shared/footer";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Update from "./components/Update";
+import Footer from "./shared/Footer";
 
 function App() {
   return (

@@ -15,15 +15,15 @@ const Create = () => {
                     <form action="#">
                         <div className="form-fields">
                             <div>
-                                <label for="title">Title:</label>
+                                <label HTMLFor="title">Title:</label>
                                 <input type="title" name="title" id="title" placeholder="Title" />
                             </div>
                             <div>
-                                <label for="author">Author:</label>
+                                <label HTMLFor="author">Author:</label>
                                 <input type="author" name="author" id="author" placeholder="Author" />
                             </div>
                             <div>
-                                <label for="publisher-select">Publisher:</label>
+                                <label HTMLFor="publisher-select">Publisher:</label>
                                 <select name="publisher-select" id="publisher-select">
                                     <option value="select" selected disabled>Select</option>
                                     <option value="boom-box">BOOM! Box</option>
@@ -38,15 +38,15 @@ const Create = () => {
                                 </select>
                             </div>
                             <div>
-                                <label for="genre">Genre:</label>
+                                <label HTMLFor="genre">Genre:</label>
                                 <input type="genre" name="genre" id="genre" placeholder="Genre" />
                             </div>
                             <div>
-                                <label for="number-pages">Number of pages:</label>
+                                <label HTMLFor="number-pages">Number of pages:</label>
                                 <input type="number-pages" name="number-pages" id="number-pages" placeholder="Number of pages" />
                             </div>
                             <div>
-                                <label for="rating">Rating:</label>
+                                <label HTMLFor="rating">Rating:</label>
                                 <input type="rating" name="rating" id="rating" placeholder="number (0-5)"/>
                             </div>
                             <div>
