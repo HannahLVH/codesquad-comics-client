@@ -1,14 +1,32 @@
 import React, {useEffect, useState} from "react";
-import booksData from "../data/books";
+// import booksData from "../data/books";
 
 const Home = () => {
     const imagePath = "./images/";
     const [books, setBooks] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect (() => {
-        setBooks(booksData);
+        // setBooks(booksData);
+        fetch(`http://localhost:8080/api/books`, {
+            method: "GET",
+            headers: {"Content-type": "application/json",
+        },
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if(result.statusCode === 200) {
+                    setBooks(result.data)
+                } else {
+                    throw new Error(result.error.message)
+                }
+            })
+            .catch((error) => setErrorMessage(error.message))
+
     }, [])
     
+    console.log("books :.. ", books);
+    console.log("errorMessage :>>", errorMessage);
     return (
       <div>
         <div Name="content-section">
