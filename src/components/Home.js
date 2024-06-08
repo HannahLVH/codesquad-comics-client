@@ -4,7 +4,7 @@ import booksData from "../data/books";
 const Home = () => {
     const imagePath = "./images/" 
     return (
-      <div>
+    <main>
         <div className="content-section">
             <br/>
             <div className="text-container-1">
@@ -41,7 +41,7 @@ const Home = () => {
             </div>
             <br/>
         </div>
-      </div>
+    </main>
     )
 }
 

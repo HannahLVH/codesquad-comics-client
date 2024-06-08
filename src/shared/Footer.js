@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-      <div>
+    <main>
         <footer className="footer-text-styling footer-link-styling">
             <div className="footer-menu">
                 <div className="visit-us">
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>       
             </div>
         </footer>
-      </div>
+    </main>
     )
   }
 

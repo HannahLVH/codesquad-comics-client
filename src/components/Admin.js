@@ -3,7 +3,7 @@ import booksData from "../data/books"
 
 const Admin = () => {
     return (
-        <div class="content-section">
+    <main class="content-section">
         <div class="text-container-1">
             <header class="admin-header">
                 <h1>ADMIN PAGE</h1>
@@ -34,7 +34,7 @@ const Admin = () => {
             </div>
         </div>
         <br/>
-    </div>
+    </main>
     )
   }
 
