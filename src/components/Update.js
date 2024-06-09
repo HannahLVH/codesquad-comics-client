@@ -29,8 +29,7 @@ const Update = () => {
     console.log(book)
 
     return (
-    <div>
-        <div className="content-section">
+        <main className="content-section">
             <br/>
             <div className="text-container-1">
                 <span className="content-header">
@@ -106,8 +105,7 @@ const Update = () => {
                 </div>
             </div>
             <br/>
-        </div>
-    </div>
+        </main>
     )
   }
 

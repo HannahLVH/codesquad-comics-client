@@ -11,7 +11,7 @@ const Header = ({user, setUser}) => {
 
 
     return (
-      <div>
+    <main>
         <header>
             <nav className="nav-container">
                 <span className="nav-banner-container">
@@ -32,7 +32,7 @@ const Header = ({user, setUser}) => {
                 </div>
             </nav>
         </header>
-    </div>
+    </main>
     )
   }
 

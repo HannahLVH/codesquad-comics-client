@@ -28,8 +28,8 @@ const Home = () => {
     console.log("books :.. ", books);
     console.log("errorMessage :>>", errorMessage);
     return (
-      <div>
-        <div Name="content-section">
+    <main>
+        <div className="content-section">
             <br/>
             <div className="text-container-1">
                 <span className="content-header">
@@ -65,7 +65,7 @@ const Home = () => {
             </div>
             <br/>
         </div>
-      </div>
+    </main>
     )
 }
 
