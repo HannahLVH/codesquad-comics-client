@@ -22,7 +22,7 @@ const About = () => {
                     <li>Latest additions: 12</li>
                     <li>5-star ratings: 5</li>
                     <li>Publishers: 9</li>
-                    </ul>
+                </ul>
             </div>
             </section>
         </div>
