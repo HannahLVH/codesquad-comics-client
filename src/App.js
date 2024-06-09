@@ -1,10 +1,12 @@
+import React, {useState, useEffect} from "react";
+
 import Header from "../src/shared/Header";
 import About from "./components/About";
 import Admin from "./components/Admin";
 import Create from "./components/Create";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Signup from  "./components/signup";
+import Signup from  "./components/Signup";
 import Update from "./components/Update";
 import Footer from "./shared/Footer";
 
