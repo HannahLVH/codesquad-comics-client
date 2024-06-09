@@ -14,17 +14,17 @@ const Update = () => {
                 <form action="#">
                     <div className="form-fields">
                         <div className="label-input">
-                            <label HTMLFor="title">Title:</label>
+                            <label htmlFor="title">Title:</label>
                             <input type="title" name="title" id="title" value="title value stored in the database" />
                         </div>
                         <div>
-                            <label HTMLFor="author">Author:</label>
+                            <label htmlFor="author">Author:</label>
                             <input type="author" name="author" id="author" value="author value stored in the database" />
                         </div>
                         <div>
-                            <label HTMLFor="publisher-select">Publisher:</label>
-                            <select name="publisher-select" id="publisher-select">
-                                <option value="publisher-value" selected>publisher value stored in the database</option>
+                            <label htmlFor="publisher-select">Publisher:</label>
+                            <select name="publisher-select" id="publisher-select" defaultValue="select">
+                                <option value="publisher-value">publisher value stored in the database</option>
                                 <option value="boom-box">BOOM! Box</option>
                                 <option value="dc-comics">DC Comics</option>
                                 <option value="harry-n-abrams">Harry N. Abrams</option>
@@ -37,15 +37,15 @@ const Update = () => {
                             </select>
                         </div>
                         <div>
-                            <label HTMLFor="genre">Genre:</label>
+                            <label htmlFor="genre">Genre:</label>
                             <input type="genre" name="genre" id="genre" value="genre data stored in the database" />
                         </div>
                         <div>
-                            <label HTMLFor="number-pages">Number of pages:</label>
+                            <label htmlFor="number-pages">Number of pages:</label>
                             <input type="number-pages" name="number-pages" id="number-pages" value="255" />
                         </div>
                         <div>
-                            <label HTMLFor="rating">Rating:</label>
+                            <label htmlFor="rating">Rating:</label>
                             <input type="rating" name="rating" id="rating" value="5"/>
                         </div>
                         <div>

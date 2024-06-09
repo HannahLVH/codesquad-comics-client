@@ -11,11 +11,11 @@ const Login = () => {
                     <form action="#">
                         <div className="form-fields">
                             <div>
-                                <label HTMLFor="username">Email Address: </label>
+                                <label htmlFor="username">Email Address: </label>
                                 <input type="username" name="username" id="username" placeholder="Email"/>
                             </div>
                             <div>
-                                <label HTMLFor="password">Password: </label>
+                                <label htmlFor="password">Password: </label>
                                 <input type="password" name="password" id="password" placeholder="Password" />
                             </div>
                             <div className="submit-button">
