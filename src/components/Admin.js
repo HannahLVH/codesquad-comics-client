@@ -9,9 +9,9 @@ const Admin = () => {
     }, [])
 
     return (
-    <main class="content-section">
-        <div class="text-container-1">
-            <header class="admin-header">
+    <main className="content-section">
+        <div className="text-container-1">
+            <header className="admin-header">
                 <h1>ADMIN PAGE</h1>
                 <button className="yellow-button">ADD NEW COMIC</button>
             </header>

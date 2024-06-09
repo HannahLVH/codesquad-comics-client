@@ -19,7 +19,7 @@ const Header = ({user, setUser}) => {
                 </span>
                 <div className="nav-menu-container">
                     <h1> Welcome, {user.firstName}! </h1>
-                    <ul class="nav-menu-list nav-link-styling">
+                    <ul className="nav-menu-list nav-link-styling">
                         <li className="nav-horizontal-menu"><a href="#">HOME</a></li>
                         <li className="nav-horizontal-menu"><a href="#">ABOUT</a></li>
                         <li className="nav-horizontal-menu"><a href="#">LOGIN</a></li>
