@@ -33,28 +33,28 @@ const Signup = ({user}) => {
                             <div className="form-fields">
                                 
                                 <div>
-                                    <label for="firstName"> First Name: </label>
+                                    <label htmlFor="firstName"> First Name: </label>
                                     <input type="text" name="firstName" id="firstName" placeholder="First Name"
                                     value={signUp.firstName}
                                     onChange={handleSignUpSubmit}
                                     required />
                                 </div>
                                 <div>
-                                    <label for="lastName"> Last Name: </label>
+                                    <label htmlFor="lastName"> Last Name: </label>
                                     <input type="text" name="lastName" id="lastName" placeholder="Last Name"
                                     value={signUp.lastName}
                                     onChange={handleSignUpSubmit}
                                     required />
                                 </div>
                                 <div>
-                                    <label for="username">Email Address: </label>
+                                    <label htmlFor="username">Email Address: </label>
                                     <input type="text" name="username" id="username" placeholder="Email"
                                     value={signUp.username}
                                     onChange={handleSignUpSubmit}
                                     required/>
                                 </div>
                                 <div>
-                                    <label for="password">Password: </label>
+                                    <label htmlFor="password">Password: </label>
                                     <input type="text" name="password" id="password" placeholder="Password"
                                     value={signUp.password}
                                     onChange={handleSignUpSubmit}

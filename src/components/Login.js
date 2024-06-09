@@ -14,17 +14,17 @@ const Create = () => {
                 <form action="#">
                     <div className="form-fields">
                         <div>
-                            <label HTMLFor="title">Title:</label>
+                            <label Hhtml="title">Title:</label>
                             <input type="title" name="title" id="title" placeholder="Title" />
                         </div>
                         <div>
-                            <label HTMLFor="author">Author:</label>
+                            <label htmlFor="author">Author:</label>
                             <input type="author" name="author" id="author" placeholder="Author" />
                         </div>
                         <div>
-                            <label HTMLFor="publisher-select">Publisher:</label>
-                            <select name="publisher-select" id="publisher-select">
-                                <option value="select" selected disabled>Select</option>
+                            <label htmlFor="publisher-select">Publisher:</label>
+                            <select name="publisher-select" id="publisher-select" defaultValue="select">
+                                <option value="select" disabled>Select</option>
                                 <option value="boom-box">BOOM! Box</option>
                                 <option value="dc-comics">DC Comics</option>
                                 <option value="harry-n-abrams">Harry N. Abrams</option>
@@ -37,15 +37,15 @@ const Create = () => {
                             </select>
                         </div>
                         <div>
-                            <label HTMLFor="genre">Genre:</label>
+                            <label htmlFor="genre">Genre:</label>
                             <input type="genre" name="genre" id="genre" placeholder="Genre" />
                         </div>
                         <div>
-                            <label HTMLFor="number-pages">Number of pages:</label>
+                            <label htmlFor="number-pages">Number of pages:</label>
                             <input type="number-pages" name="number-pages" id="number-pages" placeholder="Number of pages" />
                         </div>
                         <div>
-                            <label HTMLFor="rating">Rating:</label>
+                            <label htmlFor="rating">Rating:</label>
                             <input type="rating" name="rating" id="rating" placeholder="number (0-5)"/>
                         </div>
                         <div>
