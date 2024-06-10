@@ -1,12 +1,46 @@
 import React, {useEffect, useState} from "react";
-import booksData from "../data/books"
+// import booksData from "../data/books"
 
 const Admin = () => {
     const [books, setBooks] = useState([]);
-
+    const [errorMessage, setErrorMessage] = useState("");
     useEffect (() => {
-        setBooks(booksData);
+        // setBooks(booksData);
+        fetch(`http://localhost:8080/api/books`, {
+            method: "GET",
+            headers: {"Content-type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if(result.statusCode === 200) {
+                    setBooks(result.data)
+                } else {
+                    throw new Error (result.error.message)
+                }
+            })
+            .catch((error) => 
+            setErrorMessage(error.message))
     }, [])
+
+    console.log("books :>>", books)
+    console.log("errorMessage :>>",
+    errorMessage);
+
+    const handleDelete = (bookId) => {
+        fetch(`http://localhost:8080/api/books/delete/${bookId}`, {
+            method: "DELETE",
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                console.log("Success! Book deleted")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
+    }
 
     return (
     <main className="content-section">
@@ -22,17 +56,21 @@ const Admin = () => {
                         <thead>
                             <tr className="gray-bg">
                                 <th>COMIC TITLE</th>
-                                <th>EDIT</th>
+                                <th>UPDATE</th>
                                 <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {books.map((book) => 
+                            {errorMessage ? (
+                                <p>{errorMessage}</p>
+                                ) : (
+                                books && books.map((book) => (
                                 <tr key={book.id}>
                                     <td>{book.title}</td>
-                                    <td><button className="blue-button">EDIT</button></td>
-                                    <td><button className="yellow-button">DELETE</button></td>
+                                    <td><button className="blue-button"><a href="/update">UPDATE</a></button></td>
+                                    <td><button className="yellow-button" onClick={() => handleDelete(book.id)} >DELETE</button></td>
                                 </tr>
+                            ))
                             )}
                         </tbody>
                     </table>

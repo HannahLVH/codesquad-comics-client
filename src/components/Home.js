@@ -2,16 +2,21 @@ import React, {useEffect, useState} from "react";
 // import booksData from "../data/books";
 
 const Home = () => {
-    const imagePath = "./images/";
-    const [books, setBooks] = useState([]);
-    const [errorMessage, setErrorMessage] = useState("");
-
-    useEffect (() => {
+    //     return (
+    //         <div>
+    //             <FetchBackEnd/>
+    //         </div>
+    //     );
+    
+    // function FetchBackEnd() {
+        const [books, setBooks] = useState([]);
+        const [errorMessage, setErrorMessage] = useState("");
+        useEffect (() => {
         // setBooks(booksData);
         fetch(`http://localhost:8080/api/books`, {
             method: "GET",
             headers: {"Content-type": "application/json",
-        },
+            },
         })
             .then((response) => response.json())
             .then((result) => {
@@ -23,15 +28,18 @@ const Home = () => {
             })
             .catch((error) => setErrorMessage(error.message))
 
-    }, [])
+        }, [])
+
     
-    console.log("books :.. ", books);
+    console.log("books :>> ", books);
     console.log("errorMessage :>>", errorMessage);
+
     return (
     <main>
         <div className="content-section">
             <br/>
             <div className="text-container-1">
+                
                 <span className="content-header">
                     <header>
                         <h1>CODESQUAD COMICS</h1>
@@ -48,13 +56,17 @@ const Home = () => {
                     </span>
                     <br/>
                     <div className="comic-collection-layout comic-link-styling">
-                        {books.map((book) => 
-                            <div className="comic-thumbnail" key={book.id}>
-                                <a href="#"><img src={`${imagePath}${book.image}`} alt={`Front cover of comic book ${book.title}`} style={{width: "200px"}}/></a>
+                        {errorMessage ? (
+                        <p>{errorMessage}</p>
+                        ) : (
+                        books && books.map((book) => (
+                            <div className="comic-thumbnail" key={book._id}>
+                                <a href={`/book/${book._id}`}><img src={`images/${book.image}`} alt={`Front cover of comic book ${book.title}`} style={{width: "200px"}}/></a>
                                 <div className="comic-thumbnail-text">
                                     <span>{book.title}</span><br/>by {book.author}<br/>{book.rating}<br/><a href="#">Details</a>
                                 </div>
                             </div>
+                        ))
                         )}
                     </div>
                     <br/>    
@@ -68,5 +80,6 @@ const Home = () => {
     </main>
     )
 }
+// }
 
 export default Home;

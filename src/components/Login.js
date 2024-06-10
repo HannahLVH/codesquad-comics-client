@@ -14,7 +14,7 @@ const Create = () => {
                 <form action="#">
                     <div className="form-fields">
                         <div>
-                            <label Hhtml="title">Title:</label>
+                            <label html="title">Title:</label>
                             <input type="title" name="title" id="title" placeholder="Title" />
                         </div>
                         <div>
