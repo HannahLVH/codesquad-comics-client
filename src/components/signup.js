@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Signup = ({user}) => {
+const Signup = () => {
     const [signUp, setSignUp] = useState({
         firstName: "",
         lastName: "",
@@ -18,7 +18,6 @@ const Signup = ({user}) => {
         console.log("Method running successfully")
         console.log(signUp)
     }
-
 
     return (
     <main className="content-section">

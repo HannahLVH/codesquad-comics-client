@@ -1,6 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
+
 
 const Create = () => {
+    const [createBook, setCreateBook] = useState({
+        title: "",
+        author: "",
+        publisher:"",
+        genre: "",
+        pages: "",
+        rating: "",
+        synopsis: ""
+    });
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const {name, value} = e.target;
+        setCreateBook((prevCreateBook) => ({...prevCreateBook, [name]: value}))
+        console.log("Method running successfully")
+    }
+
+    console.log(createBook)
+
     return (
     <main className="content-section">
         <br/>
@@ -11,19 +30,19 @@ const Create = () => {
                 </header>
             </span>
             <div className="form-container">
-                <form action="#">
+                <form action="#" onSubmit={handleFormSubmit}>
                     <div className="form-fields">
                         <div>
                             <label htmlFor="title">Title:</label>
-                            <input type="title" name="title" id="title" placeholder="Title" />
+                            <input type="text" name="title" id="title" placeholder="Title" value={createBook.title} onChange={handleFormSubmit} required/>
                         </div>
                         <div>
                             <label htmlFor="author">Author:</label>
-                            <input type="author" name="author" id="author" placeholder="Author" />
+                            <input type="text" name="author" id="author" placeholder="Author" value={createBook.author} onChange={handleFormSubmit} required/>
                         </div>
                         <div>
-                            <label htmlFor="publisher-select">Publisher:</label>
-                            <select name="publisher-select" id="publisher-select" defaultValue="select">
+                            <label htmlFor="publisher">Publisher:</label>
+                            <select name="publisher" id="publisher" defaultValue={"select"} onChange={handleFormSubmit} required>
                                 <option value="select" disabled>Select</option>
                                 <option value="boom-box">BOOM! Box</option>
                                 <option value="dc-comics">DC Comics</option>
@@ -38,19 +57,19 @@ const Create = () => {
                         </div>
                         <div>
                             <label htmlFor="genre">Genre:</label>
-                            <input type="genre" name="genre" id="genre" placeholder="Genre" />
+                            <input type="text" name="genre" id="genre" placeholder="Genre" value={createBook.genre} onChange={handleFormSubmit} required/>
                         </div>
                         <div>
-                            <label htmlFor="number-pages">Number of pages:</label>
-                            <input type="number-pages" name="number-pages" id="number-pages" placeholder="Number of pages" />
+                            <label htmlFor="pages">Number of pages:</label>
+                            <input type="number" name="pages" id="pages" placeholder="Number of pages" value={createBook.pages} onChange={handleFormSubmit} required/>
                         </div>
                         <div>
                             <label htmlFor="rating">Rating:</label>
-                            <input type="rating" name="rating" id="rating" placeholder="number (0-5)"/>
+                            <input type="number" name="rating" id="rating" placeholder="number (0-5)" value={createBook.rating} onChange={handleFormSubmit} required/>
                         </div>
                         <div>
-                            <label className="synopsis-label">Synopsis:</label>
-                            <textarea className="synopsis-textarea" id="synopsis" name="synopsis" placeholder="Synopsis"></textarea>
+                            <label className="synopsis">Synopsis:</label>
+                            <textarea className="synopsis" id="synopsis" name="synopsis" placeholder="Synopsis" value={createBook.synopsis} onChange={handleFormSubmit} required></textarea>
                         </div>  
                         <br/>             
                         <div className="submit-button">
