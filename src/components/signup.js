@@ -15,8 +15,7 @@ const Signup = () => {
 
     const handleSignUpSubmit = (e) => {
         e.preventDefault();
-        console.log("Method running successfully")
-        console.log(signUp)
+        console.log("Method running successfully", signUp)
     }
 
     return (
