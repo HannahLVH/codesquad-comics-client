@@ -11,7 +11,8 @@ import Update from "./components/Update";
 import Footer from "./shared/Footer";
 
 function App() {
-const [user, setUser] = useState({})
+const [user, setUser] = useState(localStorage.getItem("user") || {})
+
 
 useEffect (() => {
   localStorage.getItem("user")

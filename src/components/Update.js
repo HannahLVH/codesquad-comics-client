@@ -21,9 +21,13 @@ const Update = () => {
     }, [_id])
 
     const handleUpdateSubmit = (e) => {
-        const {name, value} = e.target;
+        e.preventDefault();
+        console.log("Method running successfully", book);
+    }
+
+    const handleInputChange = (e) => {
+        const {name, value } = e.target;
         setBook((prevBook) => ({...prevBook, [name]: value}))
-        console.log("Method running successfully");
     }
 
     console.log(book)
@@ -45,20 +49,20 @@ const Update = () => {
                                 <input type="text" name="title" id="title" 
                                 // value="title value stored in the database"
                                 value={book.title}
-                                onChange={handleUpdateSubmit} required />
+                                onChange={handleInputChange} required />
                             </div>
                             <div>
                                 <label htmlFor="author">Author:</label>
                                 <input type="text" name="author" id="author" 
                                 //value="author value stored in the database"
                                 value={book.author}
-                                onChange={handleUpdateSubmit} />
+                                onChange={handleInputChange} />
                             </div>
                             <div>
                                 <label htmlFor="publisher">Publisher:</label>
                                 <select name="publisher" id="publisher"
                                 value={book.publisher}
-                                onChange={handleUpdateSubmit}
+                                onChange={handleInputChange}
                             >
                                     <option value="publisherValue" >publisher value stored in the database</option>
                                     <option value="boom-box">BOOM! Box</option>
@@ -77,24 +81,24 @@ const Update = () => {
                                 <input type="text" name="genre" id="genre" 
                                 //value="genre data stored in the database" 
                                 value={book.genre}
-                                onChange={handleUpdateSubmit}/>
+                                onChange={handleInputChange}/>
                             </div>
                             <div>
                                 <label htmlFor="pages">Number of pages:</label>
                                 <input type="number" name="pages" id="pages" 
                                 value={book.pages}
-                                onChange={handleUpdateSubmit} />
+                                onChange={handleInputChange} />
                             </div>
                             <div>
                                 <label htmlFor="rating">Rating:</label>
                                 <input type="number" name="rating" id="rating" value={book.rating}
-                                onChange={handleUpdateSubmit}/>
+                                onChange={handleInputChange}/>
                             </div>
                             <div>
                                 <label className="synopsis-label">Synopsis:</label>
                                 <textarea className="synopsis-textarea" id="synopsis" name="synopsis"
                                 value={book.synopsis}
-                                onChange={handleUpdateSubmit}></textarea>
+                                onChange={handleInputChange}></textarea>
                             </div>
                             <br/>
                             <div className="submit-button">
