@@ -20,14 +20,14 @@ const Update = () => {
         setBook(findBook);
     }, [_id])
 
-    const handleUpdateSubmit = (e) => {
-        e.preventDefault();
-        console.log("Method running successfully", book);
-    }
-
     const handleInputChange = (e) => {
         const {name, value } = e.target;
         setBook((prevBook) => ({...prevBook, [name]: value}))
+    }
+
+    const handleUpdateSubmit = (e) => {
+        e.preventDefault();
+        console.log("Method running successfully", book);
     }
 
     console.log(book)
