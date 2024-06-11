@@ -143,18 +143,6 @@ const books = [
       'In this graphic novel adaptation of Octavia E. Butler’s Parable of the Sower by Damian Duffy and John Jennings, the award-winning team behind Kindred: A Graphic Novel Adaptation, the "author" portrays a searing vision of America’s future. In the year 2024, the country is marred by unattended environmental and economic crises that lead to social chaos. Lauren Olamina, a preacher’s daughter living in Los Angeles, is protected from danger by the walls of her gated community. However, in a night of fire and death, what begins as a fight for survival soon leads to something much more: a startling vision of human destiny . . . and the birth of a new faith.',
     image: "parable-of-the-sower.jpg",
   },
-  {
-    _id: "test-book",
-    title: "TEST BOOK",
-    author: "TEST BOOK",
-    publisher: "TEST BOOK",
-    genre: "TEST BOOK",
-    pages: 284,
-    rating: 4,
-    synopsis:
-      'In this graphic novel adaptation of Octavia E. Butler’s Parable of the Sower by Damian Duffy and John Jennings, the award-winning team behind Kindred: A Graphic Novel Adaptation, the "author" portrays a searing vision of America’s future. In the year 2024, the country is marred by unattended environmental and economic crises that lead to social chaos. Lauren Olamina, a preacher’s daughter living in Los Angeles, is protected from danger by the walls of her gated community. However, in a night of fire and death, what begins as a fight for survival soon leads to something much more: a startling vision of human destiny . . . and the birth of a new faith.',
-    image: "parable-of-the-sower.jpg",
-  },
 ];
 
 export default books;

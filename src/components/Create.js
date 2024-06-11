@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const Create = () => {
+    const navigate = useNavigate();
     const [createBook, setCreateBook] = useState({
         title: "",
         author: "",
@@ -18,8 +20,33 @@ const Create = () => {
     }
 
     const handleFormSubmit = (e) => {
+        const body = {
+            title: e.target.title.value,
+            author: e.target.author.value,
+            publisher: e.target.publisher.value,
+            genre: e.target.genre.value,
+            pages: e.target.pages.value,
+            rating: e.target.rating.value,
+            synopsis: e.target.synopsis.value
+        }
         e.preventDefault();
         console.log("Method running successfully", createBook)
+
+        fetch("http://localhost:8080/api/books/create", {
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                console.log("Success! Book created")
+                navigate("/admin")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
     }
 
     // console.log(createBook)
