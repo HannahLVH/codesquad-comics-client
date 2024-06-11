@@ -40,11 +40,6 @@ const Login = ({user}) => {
         .catch((error) => console.log("Error", error));
     }
 
-
-    const handleLoggedIn = (e) => {
-        console.log(`Welcome back, ${user.firstName}!`)
-    }
-
     return (
     <main className="content-section">
         <div className="text-container-1">
@@ -70,7 +65,7 @@ const Login = ({user}) => {
                             </div>
                             <div className="submit-button">
                                 <br/>
-                                <button className="submit-button yellow-button" onClick={handleLoggedIn}>Submit</button>
+                                <button className="submit-button yellow-button" >Submit</button>
                             </div>
                         </div>
                     </form>
