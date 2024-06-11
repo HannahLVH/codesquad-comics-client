@@ -1,6 +1,8 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [signUp, setSignUp] = useState({
         firstName: "",
         lastName: "",
@@ -14,8 +16,29 @@ const Signup = () => {
     }
 
     const handleSignUpSubmit = (e) => {
+        const body = {
+            username: e.target.username.value,
+            password: e.target.password.value
+        }
         e.preventDefault();
         console.log("Method running successfully", signUp)
+
+        fetch("http://localhost:8080/signup", {
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                localStorage.setItem("user", JSON.stringify(result.data));
+                console.log("Success! You are signed up");
+                navigate("/admin")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
     }
 
     return (
