@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-
-import booksData from "../data/books"
+import {useParams, useNavigate} from "react-router-dom";
+// import booksData from "../data/books";
 
 const Update = () => {
-    const _id = "66b62a49-a8de-4914-ab3f-49fe0554c08a";
+    const navigate = useNavigate();
+    const { bookId } = useParams();
     const [book, setBook] = useState({
         title: "",
         author: "",
@@ -15,10 +16,24 @@ const Update = () => {
     });
 
     useEffect(() => {
-        const findBook = booksData.find((book) => book._id === _id)
+        // const findBook = booksData.find((book) => book._id === _id)
         // localStorage.setItem("findBook", JSON.stringify(findBook));
-        setBook(findBook);
-    }, [_id])
+        // setBook(findBook);
+        fetch(`http://localhost:8080/api/books/${bookId}`, {
+            method: "GET",
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if(result.statusCode ===200)
+                {
+                    console.log(result)
+                    setBook(result.data)
+                } else {
+                    throw new Error(result.error.message)
+                }
+            })
+            .catch((error) => console.log("Error", error))
+    }, [bookId])
 
     const handleInputChange = (e) => {
         const {name, value } = e.target;
@@ -26,11 +41,35 @@ const Update = () => {
     }
 
     const handleUpdateSubmit = (e) => {
+        const body = {
+            title: e.target.title.value,
+            author: e.target.author.value,
+            publisher: e.target.publisher.value,
+            genre: e.target.genre.value,
+            pages: e.target.pages.value,
+            rating: e.target.rating.value,
+            synopsis: e.target.synopsis.value
+        }
         e.preventDefault();
         console.log("Method running successfully", book);
-    }
 
-    console.log(book)
+        fetch(`http://localhost:8080/api/books/update/${bookId}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                console.log("Success! Book updated", result)
+                setBook(result.data)
+                navigate("/admin")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
+    }
 
     return (
         <main className="content-section">

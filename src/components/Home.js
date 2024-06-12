@@ -15,7 +15,7 @@ const Home = () => {
         // setBooks(booksData);
         fetch(`http://localhost:8080/api/books`, {
             method: "GET",
-            headers: {"Content-type": "application/json",
+            headers: {"Content-Type": "application/json",
             },
         })
             .then((response) => response.json())

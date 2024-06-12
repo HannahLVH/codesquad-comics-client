@@ -25,7 +25,7 @@ useEffect (() => {
         <Route path="/about" element={<About/>}/>
         <Route path="/admin" element={<Admin/>}/>
         <Route path="/create" element={<Create/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>} user={user} setUser={setUser}/>
         <Route path="/signup" element={<Signup/>} user={user} setUser={setUser}/>
         <Route path="/update" element={<Update/>}/>

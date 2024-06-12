@@ -49,8 +49,6 @@ const Create = () => {
         .catch((error) => console.log("Error", error));
     }
 
-    // console.log(createBook)
-
     return (
     <main className="content-section">
         <br/>
