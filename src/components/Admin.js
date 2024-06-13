@@ -23,11 +23,11 @@ const Admin = () => {
             setErrorMessage(error.message))
     }, [])
 
-    console.log("books :>>", books)
-    console.log("errorMessage :>>",
-    errorMessage);
+    // console.log("books :>>", books)
+    // console.log("errorMessage :>>",
+    // errorMessage);
 
-    const handleDelete = (bookId) => {
+    const handleDeleteBook = (bookId) => {
         fetch(`http://localhost:8080/api/books/delete/${bookId}`, {
             method: "DELETE",
         })
@@ -68,7 +68,7 @@ const Admin = () => {
                                 <tr key={book.id}>
                                     <td>{book.title}</td>
                                     <td><button className="blue-button"><a href="/update">UPDATE</a></button></td>
-                                    <td><button className="yellow-button" onClick={() => handleDelete(book.id)} >DELETE</button></td>
+                                    <td><button className="yellow-button" onClick={() => handleDeleteBook(book.id)} >DELETE</button></td>
                                 </tr>
                             ))
                             )}

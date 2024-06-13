@@ -17,9 +17,10 @@ const Create = () => {
     const handleInputChange = (e) => {
         const {name, value} = e.target;
         setCreateBook((prevCreateBook) => ({...prevCreateBook, [name]: value}))
-    }
+    };
 
     const handleFormSubmit = (e) => {
+        e.preventDefault();
         const body = {
             title: e.target.title.value,
             author: e.target.author.value,
@@ -29,25 +30,26 @@ const Create = () => {
             rating: e.target.rating.value,
             synopsis: e.target.synopsis.value
         }
-        e.preventDefault();
-        console.log("Method running successfully", createBook)
+        console.log("Method running successfully", body)
 
         fetch("http://localhost:8080/api/books/create", {
             method: "POST",
-            headers: {"Content-Type": "application/json",},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),
         })
         .then((response) => response.json())
         .then((result) => {
             if(result.statusCode === 200) {
-                console.log("Success! Book created")
+                console.log("Success! Book created", body)
                 navigate("/admin")
             } else {
                 throw new Error (result.error.message)
             }
         })
         .catch((error) => console.log("Error", error));
-    }
+    };
+
+    // console.log(setCreateBook);
 
     return (
     <main className="content-section">

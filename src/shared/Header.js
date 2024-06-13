@@ -22,6 +22,7 @@ const Header = ({user, setUser}) => {
                 if(result.statusCode === 200) {
                     setUser({});
                     localStorage.removeItem("user");
+                    console.log("You logged out successfully!")
                     navigate("/");
                 } else {
                     throw new Error (result.error.message);
@@ -46,10 +47,10 @@ const Header = ({user, setUser}) => {
                         <li className="nav-horizontal-menu"><Link to="/">HOME</Link></li>
                         <li className="nav-horizontal-menu"><Link to="/about">ABOUT</Link></li>
                         {user.username ? (
-                            <>
+                        <>
                         <li className="nav-horizontal-menu"><Link to="/admin">ADMIN</Link></li>
                         <li className="nav-horizontal-menu"><a href="#" onClick={handleLogout}>LOGOUT</a></li>
-                            </>
+                        </>
                         ) : (
                         <li className="nav-horizontal-menu"><Link to="/login">LOGIN</Link></li> 
                         )}

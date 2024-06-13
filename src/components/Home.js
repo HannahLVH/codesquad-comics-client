@@ -31,8 +31,8 @@ const Home = () => {
         }, [])
 
     
-    console.log("books :>> ", books);
-    console.log("errorMessage :>>", errorMessage);
+    // console.log("books :>> ", books);
+    // console.log("errorMessage :>>", errorMessage);
 
     return (
     <main>

@@ -19,8 +19,7 @@ const Login = () => {
             password: e.target.password.value
         }
         e.preventDefault();
-        console.log("Method running successfully");
-        console.log(login)
+        console.log("Method running successfully", login);
 
         fetch("http://localhost:8080/login/local", {
             method: "POST",
