@@ -5,15 +5,7 @@ import {useParams, useNavigate} from "react-router-dom";
 const Update = () => {
     const navigate = useNavigate();
     const { bookId } = useParams();
-    const [book, setBook] = useState({
-        title: "",
-        author: "",
-        publisher:"",
-        genre: "",
-        pages: "",
-        rating: "",
-        synopsis: ""
-    });
+    const [book, setBook] = useState({});
 
     useEffect(() => {
         // const findBook = booksData.find((book) => book._id === _id)
@@ -70,6 +62,8 @@ const Update = () => {
         })
         .catch((error) => console.log("Error", error));
     }
+
+    // console.log(book)
 
     return (
         <main className="content-section">

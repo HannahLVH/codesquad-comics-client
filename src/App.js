@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Routes, Route} from "react-router-dom";
 import Header from "../src/shared/Header";
 import About from "./components/About";
@@ -14,9 +14,9 @@ function App() {
 const [user, setUser] = useState(localStorage.getItem("user") || {})
 
 
-useEffect (() => {
-  localStorage.getItem("user")
-}, [user])
+// useEffect (() => {
+//   localStorage.getItem("user")
+// }, [user])
 
   return (
     <div className="App">
@@ -28,7 +28,7 @@ useEffect (() => {
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>} user={user} setUser={setUser}/>
         <Route path="/signup" element={<Signup/>} user={user} setUser={setUser}/>
-        <Route path="/update" element={<Update/>}/>
+        <Route path="/edit" element={<Update/>}/>
       </Routes>
       <Footer/>
     </div>

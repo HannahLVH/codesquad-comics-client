@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 // import booksData from "../data/books"
 
 const Admin = () => {
+    const navigate = useNavigate();
     const [books, setBooks] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     useEffect (() => {
@@ -65,10 +67,10 @@ const Admin = () => {
                                 <p>{errorMessage}</p>
                                 ) : (
                                 books && books.map((book) => (
-                                <tr key={book.id}>
+                                <tr key={book._id}>
                                     <td>{book.title}</td>
-                                    <td><button className="blue-button"><a href="/update">UPDATE</a></button></td>
-                                    <td><button className="yellow-button" onClick={() => handleDeleteBook(book.id)} >DELETE</button></td>
+                                    <td><button className="blue-button" onClick={() => navigate(`/edit/${book._id}`)}>UPDATE</button></td>
+                                    <td><button className="yellow-button" onClick={() => handleDeleteBook(book._id)} >DELETE</button></td>
                                 </tr>
                             ))
                             )}
