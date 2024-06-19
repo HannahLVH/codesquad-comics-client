@@ -24,7 +24,7 @@ const books = [
     image: "watchmen.jpg",
   },
   {
-    _id: "6641950745a4cc712c739c5b",
+    _id: "608f68ce-d099-41e5-9961-cdd673257eb2",
     title: "Hunter X Hunter Vol. 1",
     author: "Yoshihiro Togashi",
     publisher: "VIZ Media LLC",

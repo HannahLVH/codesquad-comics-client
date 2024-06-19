@@ -41,7 +41,7 @@ const Footer = () => {
             <h3>A PRODUCT OF</h3>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
-                src="./images/CodeSquad-logo.png"
+                src="/images/CodeSquad-logo.png"
                 alt="The Code Squad logo: a red opening angle bracket and a black closing angle bracket followed by the word 'CODE' in red upper case letters and the word 'SQUAD' written underneath in black upper case letters. Right below the suffix '.org' is written in red upper case letters"
                 className="footer-codesquad-logo"
               />

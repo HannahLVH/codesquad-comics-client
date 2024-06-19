@@ -31,8 +31,8 @@ const Home = () => {
         }, [])
 
     
-    // console.log("books :>> ", books);
-    // console.log("errorMessage :>>", errorMessage);
+    console.log("books :>> ", books);
+    console.log("errorMessage :>>", errorMessage);
 
     return (
     <main>
@@ -61,7 +61,7 @@ const Home = () => {
                         ) : (
                         books && books.map((book) => (
                             <div className="comic-thumbnail" key={book._id}>
-                                <a href={`/book/${book._id}`}><img src={`images/${book.image}`} alt={`Front cover of comic book ${book.title}`} style={{width: "200px"}}/></a>
+                                <a href={`/${book._id}`}><img src={`images/${book.image}`} alt={`Front cover of comic book ${book.title}`} style={{width: "200px"}}/></a>
                                 <div className="comic-thumbnail-text">
                                     <span>{book.title}</span><br/>by {book.author}<br/>{book.rating}<br/><a href="#">Details</a>
                                 </div>

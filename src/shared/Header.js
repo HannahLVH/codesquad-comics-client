@@ -39,7 +39,7 @@ const Header = ({user, setUser}) => {
         <header>
             <nav className="nav-container">
                 <span className="nav-banner-container">
-                <Link to="/"><img src="./images/CodeSquad-Comics-logo.png" alt="blue rectangular banner with ¸the words 'CodeSquad Comics' written in teal on the right side and green and yellow books of different sizes on the left side" className="nav-banner-img"/></Link>
+                <Link to="/"><img src="/images/CodeSquad-Comics-logo.png" alt="blue rectangular banner with ¸the words 'CodeSquad Comics' written in teal on the right side and green and yellow books of different sizes on the left side" className="nav-banner-img"/></Link>
                 </span>
                 <div className="nav-menu-container">
                     <h1> Welcome, {user.firstName}! </h1>

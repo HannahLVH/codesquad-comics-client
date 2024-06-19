@@ -1,22 +1,33 @@
 import React, {useEffect, useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
+
 // import booksData from "../data/books";
 
 const Update = () => {
     const navigate = useNavigate();
     const { bookId } = useParams();
-    const [book, setBook] = useState({});
+    const [errorMessage, setErrorMessage] = useState("");
+    const [book, setBook] = useState({
+        title: "",
+        author: "",
+        publisher:"",
+        genre: "",
+        pages: "",
+        rating: "",
+        synopsis: ""
+    });
 
     useEffect(() => {
         // const findBook = booksData.find((book) => book._id === _id)
         // localStorage.setItem("findBook", JSON.stringify(findBook));
         // setBook(findBook);
-        fetch(`http://localhost:8080/api/books/${bookId}`, {
+        fetch(`http://localhost:8080/api/books/get/${bookId}`, {
             method: "GET",
+            headers: {"Content-Type": "application/json"},
         })
             .then((response) => response.json())
             .then((result) => {
-                if(result.statusCode ===200)
+                if(result.statusCode === 200)
                 {
                     console.log(result)
                     setBook(result.data)
@@ -24,7 +35,7 @@ const Update = () => {
                     throw new Error(result.error.message)
                 }
             })
-            .catch((error) => console.log("Error", error))
+            .catch((error) => console.log("There's an error", error))
     }, [bookId])
 
     const handleInputChange = (e) => {
@@ -33,6 +44,7 @@ const Update = () => {
     }
 
     const handleUpdateSubmit = (e) => {
+        e.preventDefault();
         const body = {
             title: e.target.title.value,
             author: e.target.author.value,
@@ -41,11 +53,12 @@ const Update = () => {
             pages: e.target.pages.value,
             rating: e.target.rating.value,
             synopsis: e.target.synopsis.value
+            
         }
-        e.preventDefault();
+        
         console.log("Method running successfully", book);
 
-        fetch(`http://localhost:8080/api/books/update/${bookId}`, {
+        fetch(`http://localhost:8080/api/books/edit/${bookId}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(body),
@@ -60,7 +73,7 @@ const Update = () => {
                 throw new Error (result.error.message)
             }
         })
-        .catch((error) => console.log("Error", error));
+        .catch((error) => setErrorMessage("Error", error, errorMessage));
     }
 
     // console.log(book)
@@ -89,13 +102,13 @@ const Update = () => {
                                 <input type="text" name="author" id="author" 
                                 //value="author value stored in the database"
                                 value={book.author}
-                                onChange={handleInputChange} />
+                                onChange={handleInputChange} required/>
                             </div>
                             <div>
                                 <label htmlFor="publisher">Publisher:</label>
                                 <select name="publisher" id="publisher"
                                 value={book.publisher}
-                                onChange={handleInputChange}
+                                onChange={handleInputChange} required
                             >
                                     <option value="publisherValue" >publisher value stored in the database</option>
                                     <option value="boom-box">BOOM! Box</option>

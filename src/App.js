@@ -12,7 +12,7 @@ import Footer from "./shared/Footer";
 
 function App() {
 const [user, setUser] = useState(localStorage.getItem("user") || {})
-
+// const {bookId} = useParams();
 
 // useEffect (() => {
 //   localStorage.getItem("user")
@@ -28,7 +28,7 @@ const [user, setUser] = useState(localStorage.getItem("user") || {})
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>} user={user} setUser={setUser}/>
         <Route path="/signup" element={<Signup/>} user={user} setUser={setUser}/>
-        <Route path="/edit" element={<Update/>}/>
+        <Route path="/edit/:bookId" element={<Update/>}/>
       </Routes>
       <Footer/>
     </div>
